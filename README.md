@@ -29,3 +29,4 @@ const LeftMenu = () => {
   }, []);
   // Finally, in the returned JSX, we use the Categories state object in our UI.
   return IsMobileWidth() ? null : <div className="leftmenu">{categories}</div>;
+
