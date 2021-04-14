@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 !navigation-menu-user-profile
 if !Userlogged show them login and register menus
 else show them logout and UserProfile menus
@@ -72,4 +71,4 @@ const LeftMenu = () => {
   }, []);
   // Finally, in the returned JSX, we use the Categories state object in our UI.
   return IsMobileWidth() ? null : <div className="leftmenu">{categories}</div>;
->>>>>>> b764aa0... data service layer
+
