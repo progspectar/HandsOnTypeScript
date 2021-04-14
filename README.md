@@ -8,6 +8,7 @@ Redux store:
 // UserProfileReducer can be distinguished from other reducers.
 export const UserProfileSetType = "USER_PROFILE_SET";
 
+
 // create a payload type called UserProfilePayload. This is the
 // data that will be in our actions when they are dispatched later.
 export interface UserProfilePayload {
