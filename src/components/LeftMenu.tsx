@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IsMobileWidth } from "../hooks/useWindowDimensions";
+import Category from "../models/Category";
+import { getCategories } from "../services/DataService";
+import "./LeftMenu.css";
 
 const LeftMenu = () => {
-  return IsMobileWidth() ? null : <div className="leftmenu">Left Menu</div>;
+  const [categories, setCategories] = useState<JSX.Element>(
+    <div>Left Menu</div>
+  );
+  useEffect(() => {
+    getCategories()
+      .then((categories: Array<Category>) => {
+        const cats = categories.map((cat) => {
+          return <li key={cat.id}>{cat.name}</li>;
+        });
+        setCategories(<ul className="category">{cats}</ul>);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  return IsMobileWidth() ? null : <div className="leftmenu">{categories}</div>;
 };
 
 export default LeftMenu;
